@@ -1,7 +1,7 @@
 <?php
 $servername = "sql206.epizy.com";
 $username = "epiz_28401508";
-$password = "@1181325";
+$password = "BEDmsemdbZorb";
 $dbname = "epiz_28401508_covid_project";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
