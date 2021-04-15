@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Queries</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<style>
+  body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+  .checkbox-orange[type="checkbox"].filled-in:checked+span:not(.lever):after {
+  border: 2px solid #e65100;
+  background-color: #e65100;
+}
+.tabs {
+     display: flex !important
+}
+[type="radio"]:checked + span:after,
+ 
+[type="radio"].with-gap:checked + span:before,
+ 
+[type="radio"].with-gap:checked + span:after {
+ 
+  border: 2px solid #e65100;
+ 
+}
+ 
+ 
+ 
+[type="radio"]:checked + span:after,
+ 
+[type="radio"].with-gap:checked + span:after {
+ 
+  background-color: #e65100;
+ 
+}
+</style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", event => {
+  const options = {
+    duration: 300,
+    onShow: null,
+    swipeable: false,
+    responsiveThreshold: Infinity
+  };
+
+  const tabsContainer = document.querySelector(".tabs");
+  M.Tabs.init(tabsContainer, options);
+});
+  </script>
+ 
+<body>
+    <nav class='orange darken-4' role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Langara College</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/covid_tracker/index.html">Home</a></li>
+        <li><a href="/covid_tracker/form.html">Form</a></li>
+        <li><a href="/covid_tracker/search.html">Queries</a></li>
+        <li><a href="/covid_tracker/chart.html">Chart</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+    
+      <h1 class="header left col s12 orange-text text-darken-4">Queries</h1>
+    <br>
+    <br>
+
+    </div>
+  </div>
+
+<!-- Main Content -->
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12" >
+          <div class="card">
+            <div class="card-content"></div>
+            <div class="card-tabs">
+              <ul class="tabs">
+                <li class="tab"><a class="active" href="#test1">Projection Query</a></li>
+                <li class="tab"><a  href="#test2">Selection Query</a></li>
+                <li class="tab"><a  href="#test3">Join Query</a></li>
+                <li class="tab"><a  href="#test4">Division Query</a></li>
+                <li class="tab"><a  href="#test5">Aggregation Query 1</a></li>
+                <li class="tab"><a  href="#test6">Aggregation Query 2</a></li>
+                <li class="tab"><a  href="#test7">Nested Query</a></li>
+                <li class="tab"><a  href="#test8">Delete Query</a></li>
+                <li class="tab"><a  href="#test9">Update Query 1</a></li>
+                <li class="tab"><a  href="#test10">Update Query 2</a></li>
+              </ul>
+            </div>
+            <div class="card-content grey lighten-4" style="height: 28em;">
+              <!-- ===================== Projection Query.========================= -->
+              <div id="test1">
+                <form class="col s12" action="displayProjection.php" method="POST">
+                  
+                  <div class="row">
+                    <h6>Select individuals who are infected by COVID-19</h6>
+                  </div>
+
+                  <!-- Radio Buttons -->
+                  <div class="row">
+                    <div class="input-field col s12">
+                      
+                      <p>
+                        <label>
+                          <input name="group1" type="radio" value="group1a" />
+                          <span>Student</span>
+                        </label>
+                      </p>
+                      <p>
+                        <label>
+                          <input name="group1" type="radio" value="group1b"/>
+                          <span>Employee</span>
+                        </label>
+                      </p>
+                      <p>
+                        <label>
+                          <input name="group1" type="radio" value="group1c" checked/>
+                          <span>Both</span>
+                        </label>
+                      </p>
+                      
+                    </div>
+                  </div>
+                  <div class="row">
+                    <button class="btn waves-effect waves-light orange darken-4" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                  </button>
+                  </div>
+
+                </form>
+              </div>
+
+              <!-- ===================== Selection Query.========================= -->
+              <div id="test2">
+                <form class="col s12" action="displaySelectionQuery.php" method="POST">
+                  
+                  <div class="row">
+                    <h6>Select individuals who are infected by COVID-19 and are Transit User</h6>
+                  </div>
+
+                  <!-- Radio Buttons -->
+                  <div class="row">
+                    <div class="input-field col s12">
+                      
+                      <p>
+                        <label>
+                          <input name="group2" type="radio" value="group2a" />
+                          <span>Student</span>
+                        </label>
+                      </p>
+                      <p>
+                        <label>
+                          <input name="group2" type="radio" value="group2b"/>
+                          <span>Employee</span>
+                        </label>
+                      </p>
+                      <p>
+                        <label>
+                          <input name="group2" type="radio" value="group2c" checked/>
+                          <span>Both</span>
+                        </label>
+                      </p>
+                      
+                    </div>
+                  </div>
+                  <div class="row">
+                    <button class="btn waves-effect waves-light orange darken-4" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                  </button>
+                  </div>
+
+                </form>
+              </div>
+
+              <!-- ===================== JOIN QUERY. ========================= -->
+              <div id="test3">
+                <form class="col s12" action="displayJoinQuery.php" method="POST">
+                  <div class="row">
+                    <h6>Select students who are in a Specific Department</h6>
+                    
+                    <div class="input-field col s12">
+                      <input placeholder="eg. Biology" id="DNQ3" name="DnQ3" type="text" class="validate">
+                      <label for="DNQ3">Department Name</label>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <button class="btn waves-effect waves-light orange darken-4" type="submit" name="action">Submit
+                      <i class="material-icons right">send</i>
+                    </button>
+                  </div>
+
+                </form>
+              </div>
+
+              <!-- ===================== Division Query. ========================= -->
+              <div id="test4">
+                <form class="col s12" action="displayDivisionQuery.php" method="POST">
+                  <div class="row">
+                    <h6>Select students who are enrolled in at least two Sections</h6>
+                  </div>
+
+                  <div class="row">
+                    <button class="btn waves-effect waves-light orange darken-4" type="submit" name="action">Submit
+                      <i class="material-icons right">send</i>
+                    </button>
+                  </div>
+
+                </form>
+              </div>
+
+              <!-- ===================== Aggregation Query 1 ========================= -->
+              <div id="test5">
+                <form class="col s12" action="displayAggregationQuery1.php" method="POST">
+                  
+                  <div class="row">
+                    <h6>Number Of Students And Employees Who Might Be Infected</h6>
+                  </div>
+
+                  <!-- Radio Buttons -->
+                  <div class="row">
+                    <div class="input-field col s12">
+                      
+                      <p>
+                        <label>
+                          <input name="group3" type="radio" value="group3a" />
+                          <span>Student</span>
+                        </label>
+                      </p>
+                      <p>
+                        <label>
+                          <input name="group3" type="radio" value="group3b"/>
+                          <span>Employee</span>
+                        </label>
+                      </p>
+                      <p>
+                        <label>
+                          <input name="group3" type="radio" value="group3c" checked/>
+                          <span>Both</span>
+                        </label>
+                      </p>
+                      
+                    </div>
+                  </div>
+                  <div class="row">
+                    <button class="btn waves-effect waves-light orange darken-4" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                  </button>
+                  </div>
+
+                </form>
+              </div>
+
+              <!-- ===================== Aggregation Query 2 ========================= -->
+              <div id="test6">
+                <form class="col s12" action="displayAggregationQuery2.php" method="POST">
+                  <div class="row">
+                    <h6>Department With Most Infected Persons</h6>
+                  </div>
+
+                  <div class="row">
+                    <button class="btn waves-effect waves-light orange darken-4" type="submit" name="action">Submit
+                      <i class="material-icons right">send</i>
+                    </button>
+                  </div>
+
+                </form>
+              </div>
+
+              <!-- ===================== Nested Query ========================= -->
+              <div id="test7">
+                <form class="col s12" action="displayNestedQuery.php" method="POST">
+                  <div class="row">
+                    <h6>Number Of Infected Individuals In Each Department</h6>
+                  </div>
+
+                  <div class="row">
+                    <button class="btn waves-effect waves-light orange darken-4" type="submit" name="action">Submit
+                      <i class="material-icons right">send</i>
+                    </button>
+                  </div>
+
+                </form>
+              </div>
+
+              <!-- ===================== Delete Query ========================= -->
+              <div id="test8">
+                <form class="col s12" action="displayDeleteQuery.php" method="POST">
+                  <div class="row">
+                    <h6>Delete Student Entry From Database</h6>
+                    <div class="input-field col s12">
+                      <input placeholder="eg. 100000000" id="SIDQ7" name="SIDQ7" type="text" class="validate">
+                      <label for="SIDQ7">Langara ID</label>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <button class="btn waves-effect waves-light orange darken-4" type="submit" name="action">Submit
+                      <i class="material-icons right">send</i>
+                    </button>
+                  </div>
+
+                </form>
+              </div>
+
+              <!-- ===================== Update Query 1 ========================= -->
+              <div id="test9">
+                <form class="col s12" action="displayUpdateQuery1.php" method="POST">
+                  <div class="row">
+                    <h6>Update COVID-19 Test Status</h6>
+                    <div class="input-field col s12">
+                      <input placeholder="eg. 100000000" id="SIDQ8A" name="SIDQ8A" type="text" class="validate">
+                      <label for="SIDQ8A">Langara ID</label>
+                    </div>
+                  </div>
+
+                  <!-- Radio Buttons -->
+                  <div class="row">
+                    <div class="input-field col s12">
+                      
+                      <p>
+                        <label>
+                          <input name="group81" type="radio" value="group81a" />
+                          <span>Negative</span>
+                        </label>
+                      </p>
+                      <p>
+                        <label>
+                          <input name="group81" type="radio" value="group81b" checked/>
+                          <span>Positive</span>
+                        </label>
+                      </p>
+                      
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      
+                      <p>
+                        <label>
+                          <input name="group82" type="radio" value="group82a" />
+                          <span>Student</span>
+                        </label>
+                      </p>
+                      <p>
+                        <label>
+                          <input name="group82" type="radio" value="group82b" checked/>
+                          <span>Employee</span>
+                        </label>
+                      </p>
+                      
+                    </div>
+                  </div>
+                  <div class="row">
+                    <button class="btn waves-effect waves-light orange darken-4" type="submit" name="action">Submit
+                      <i class="material-icons right">send</i>
+                    </button>
+                  </div>
+
+                </form>
+              </div>
+
+              <!-- ===================== Update Query 2 ========================= -->
+              <div id="test10">
+                <form class="col s12" action="displayUpdateQuery2.php" method="POST">
+                  <div class="row">
+                    <h6>Update COVID-19 Vacination Status</h6>
+                    <div class="input-field col s12">
+                      <input placeholder="eg. 100000000" id="SIDQ8B" name="SIDQ8B" type="text" class="validate">
+                      <label for="SIDQ8A">Langara ID</label>
+                    </div>
+                  </div>
+
+                  <!-- Radio Buttons -->
+                  <div class="row">
+                    <div class="input-field col s12">
+                      
+                      <p>
+                        <label>
+                          <input name="group91" type="radio" value="group91a" />
+                          <span>Negative</span>
+                        </label>
+                      </p>
+                      <p>
+                        <label>
+                          <input name="group91" type="radio" value="group91b" checked/>
+                          <span>Positive</span>
+                        </label>
+                      </p>
+                      
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      
+                      <p>
+                        <label>
+                          <input name="group92" type="radio" value="group92a" />
+                          <span>Student</span>
+                        </label>
+                      </p>
+                      <p>
+                        <label>
+                          <input name="group92" type="radio" value="group92b" checked/>
+                          <span>Employee</span>
+                        </label>
+                      </p>
+                      
+                    </div>
+                  </div>
+                  <div class="row">
+                    <button class="btn waves-effect waves-light orange darken-4" type="submit" name="action">Submit
+                      <i class="material-icons right">send</i>
+                    </button>
+                  </div>
+
+                </form>
+              </div>
+
+              <!-- close tab content cards 👇 -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <!-- Close main content -->
+</div>
+<br><br>
+</div>
+
+<footer class="page-footer orange darken-4">
+<div class="container">
+  <div class="row">
+    <div class="col l6 s12">
+      <h5 class="white-text">Group Details</h5>
+      <p class="grey-text text-lighten-4">We are a team of college students who put together this PHP project for CPSC 2221 Database Systems, at Langara College.</p>
+
+    </div>
+    <div class="col l3 s12">
+      <h5 class="white-text">Group Members</h5>
+      <ul>
+        <li><a class="white-text" href="#!">Trista Townsend</a></li>
+        <li><a class="white-text" href="#!">Mankirat Singh</a></li>
+        <li><a class="white-text" href="#!">Jaspreet Singh</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="footer-copyright">
+  <div class="container">
+  Made by <a class="white-text text-lighten-3" href="#"><i class="material-icons">copyright</i> Trista Townsend - 2021</a>
+  </div>
+</div>
+</footer> 
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="js/init.js"></script>
+  <script>
+     $(document).ready(function(){
+    $('.tabs').tabs();
+  });
+  </script>
+  
+  </body>
+</html>
+

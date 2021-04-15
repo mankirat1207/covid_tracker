@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Information Form</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", event => {
+  const options = {
+    duration: 300,
+    onShow: null,
+    swipeable: false,
+    responsiveThreshold: Infinity
+  };
+
+  const tabsContainer = document.querySelector(".tabs");
+  M.Tabs.init(tabsContainer, options);
+});
+  </script>
+  <style>
+    body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  
+  main {
+    flex: 1 0 auto;
+  }
+    .checkbox-orange[type="checkbox"].filled-in:checked+span:not(.lever):after {
+    border: 2px solid #e65100;
+    background-color: #e65100;
+  }
+  </style>
+<body>
+    <nav class='orange darken-4' role="navigation">
+      <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Langara College</a>
+        <ul class="right hide-on-med-and-down">
+        <li><a href="/covid_tracker/index.html">Home</a></li>
+        <li><a href="/covid_tracker/form.html">Form</a></li>
+        <li><a href="/covid_tracker/search.html">Queries</a></li>
+        <li><a href="/covid_tracker/chart.html">Chart</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header left orange-text text-darken-4">Information Form</h1>
+      <div class="row left">
+        <h5 class="header col s12 light">Fill out the form with your information and click the submit button</h5>
+      </div>
+    </div>
+  </div>
+
+<!-- Main Content -->
+  <div class="container">
+    <div class="section">
+
+  <div class="row">
+    <div class="col s12 m8 push-m2 l6 push-l3" style="left: 12.5%;">
+      <div class="card" style="width: 150%;">
+        <div class="card-content"></div>
+        <div class="card-tabs">
+          <ul class="tabs tabs-fixed-width">
+            <li class="tab"><a class="active" href="#test4">Student</a></li>
+            <li class="tab"><a  href="#test5">Employee</a></li>
+          </ul>
+        </div>
+        <div class="card-content grey lighten-4" style="height: 180vh;">
+          <div id="test4" style="height: 1250px;">
+            <form class="col s12" action="student_form.php" method="POST">
+              <div class="row">
+                <h6>Student Contact Information</h6>
+                <div class="input-field col s12">
+                  <input placeholder="eg. 100000000" id="langara_id" name="LID" type="text" class="validate">
+                  <label for="langara_id">Langara ID</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input placeholder="eg. Biology" id="s_dept" name="s_dept" type="text" class="validate">
+                  <label for="s_dept">Program Department</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input placeholder="eg. John Smith" id="student_name" name="SName" type="text" class="validate">
+                  <label for="student_name">Full Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input placeholder="eg. 604-555-5555" id="student_phone" name="SPhone" type="text" class="validate">
+                  <label for="student_phone">Phone Number</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input placeholder="jsmith@mylangara.ca" id="student_email" type="email" class="validate">
+                  <label for="student_email">Email</label>
+                </div>
+              </div>
+              <div class="row">
+                <h6>Address</h6>
+                <div class="input-field col s12">
+                  <input placeholder="eg. 123 Langara Street" id="address" type="text" class="validate" name="address">
+                  <label for="address">Street Address</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input placeholder="eg. Vancouver" id="city" name="city" type="text" class="validate">
+                  <label for="city">City</label>
+                </div>
+                <div class="input-field col s6">
+                  <input placeholder="eg. BC" id="province" name="province" type="text" class="validate">
+                  <label for="province">Province</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                <p>
+                  <label>
+                    <input type="checkbox" class="filled-in checkbox-orange"  name="student_transit" id="student_transit" />
+                    <span>Transit User</span>
+                  </label>
+                </p>
+              </div>
+              </div>
+              <div class="row">
+                <h6>Emergency Contact</h6>
+                <div class="input-field col s6">
+                  <input placeholder="eg. Jane Doe" id="ec_name" type="text" class="validate" name="ec_name">
+                  <label for="ec_name">Contact Name</label>
+                </div>
+              <div class="input-field col s6">
+                <input placeholder="eg. Mother" id="relationship" name="relationship" type="text" class="validate">
+                <label for="relationship">Relationship</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="eg. 604-555-5555" id="ec_phone" name="ec_phone" type="text" class="validate">
+                <label for="ec_phone">Emergency Contact Phone Number</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="jsmith@yahoo.ca" id="ec_email" type="email" class="validate">
+                <label for="ec_email">Emergency Contact Email</label>
+              </div>
+            </div>
+              <div class="row">
+                <button class="btn waves-effect waves-light orange darken-4" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+              </button>
+              </div>
+            </form>
+          </div>
+          <div id="test5" style="height: max-content;">
+            <form class="col s12" action="employee_form.php" method="POST">
+              <div class="row">
+                <h6>Employee Contact Information</h6>
+                <div class="input-field col s12">
+                  <input placeholder="eg. 100000000" id="em_langara_id" name="em_LID" type="text" class="validate">
+                  <label for="em_langara_id">Langara ID</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input placeholder="eg. Biology" id="em_dept" name="em_dept" type="text" class="validate">
+                  <label for="em_dept">Program Department</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input placeholder="eg. Instructor" id="job_title" name="job_title" type="text" class="validate">
+                  <label for="job_title">Job Title</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input placeholder="eg. John Smith" id="em_name" name="em_name" type="text" class="validate">
+                  <label for="em_name">Full Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input placeholder="eg. 604-555-5555" id="em_phone" name="em_phone" type="text" class="validate">
+                  <label for="em_phone">Phone Number</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input placeholder="jsmith@langara.ca" name="em_email" id="em_email" type="email" class="validate">
+                  <label for="em_email">Email</label>
+                </div>
+              </div>
+              <div class="row">
+                <h6>Address</h6>
+                <div class="input-field col s12">
+                  <input placeholder="eg. 123 Langara Street" id="address" type="text" class="validate" name="address">
+                  <label for="address">Street Address</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input placeholder="eg. Vancouver" id="city" name="city" type="text" class="validate">
+                  <label for="city">City</label>
+                </div>
+                <div class="input-field col s6">
+                  <input placeholder="eg. BC" id="province" name="province" type="text" class="validate">
+                  <label for="province">Province</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                <p>
+                  <label>
+                    <input type="checkbox" class="filled-in checkbox-orange"  name="em_transit" id="em_transit" />
+                    <span>Transit User</span>
+                  </label>
+                </p>
+              </div>
+              </div>
+              <div class="row">
+                <h6>Emergency Contact</h6>
+                <div class="input-field col s6">
+                  <input placeholder="eg. Jane Doe" id="ec_name" type="text" class="validate" name="ec_name">
+                  <label for="ec_name">Contact Name</label>
+                </div>
+              <div class="input-field col s6">
+                <input placeholder="eg. Mother" id="relationship" name="relationship" type="text" class="validate">
+                <label for="relationship">Relationship</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="eg. 604-555-5555" id="ec_phone" name="ec_phone" type="text" class="validate">
+                <label for="ec_phone">Emergency Contact Phone Number</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="jsmith@yahoo.ca" id="ec_email" type="email" class="validate">
+                <label for="ec_email">Emergency Contact Email</label>
+              </div>
+            </div>
+              <div class="row">
+                <button class="btn waves-effect waves-light orange darken-4" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+              </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Close main content -->
+</div>
+<br><br>
+</div>
+
+<footer class="page-footer orange darken-4">
+<div class="container">
+  <div class="row">
+    <div class="col l6 s12">
+      <h5 class="white-text">Group Details</h5>
+      <p class="grey-text text-lighten-4">We are a team of college students who put together this PHP project for CPSC 2221 Database Systems, at Langara College.</p>
+
+    </div>
+    <div class="col l3 s12">
+      <h5 class="white-text">Group Members</h5>
+      <ul>
+        <li><a class="white-text" href="#!">Trista Townsend</a></li>
+        <li><a class="white-text" href="#!">Mankirat Singh</a></li>
+        <li><a class="white-text" href="#!">Jaspreet Singh</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="footer-copyright">
+  <div class="container">
+  Made by <a class="white-text text-lighten-3" href="#"><i class="material-icons">copyright</i> Trista Townsend - 2021</a>
+  </div>
+</div>
+</footer> 
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="js/init.js"></script>
+  <script>
+     $(document).ready(function(){
+    $('.tabs').tabs();
+  });
+  </script>
+  
+  </body>
+</html>
+
