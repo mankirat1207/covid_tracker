@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "covid_project";
+$servername = "sql206.epizy.com";
+$username = "epiz_28401508";
+$password = "@1181325";
+$dbname = "epiz_28401508_covid_project";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 $answer = $_POST['group1'];
